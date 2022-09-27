@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./css/App.css";
 import AllReviews from "./Components/AllReviews";
+import SingleReview from "./Components/SingleReview";
+import Home from "./Components/Home";
+import Navbar from "./Components/Nav";
 
 function App() {
   return (
@@ -16,8 +19,11 @@ function App() {
       </head>
       <div className="App">
         <header className="App-header"></header>
+        <Navbar />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/reviews" element={<AllReviews />} />
+          <Route path="/singlereview" element={<SingleReview />} />
         </Routes>
       </div>
     </BrowserRouter>

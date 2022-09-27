@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "../AllReviews.css";
+import "../css/AllReviews.css";
+import SingleReview from "./SingleReview";
 
 const AllReviews = () => {
   const [reviews, showAllReviews] = useState([]);
@@ -14,36 +15,10 @@ const AllReviews = () => {
 
   return (
     <section className="AllReviews">
-      <h1>All reviews</h1>
+      <h1>All Reviews</h1>
       <ul>
         {reviews.map((review) => {
-          return (
-            <li key={review.review_id}>
-              <p>
-                <u>
-                  <b>{review.title}</b>
-                </u>
-              </p>
-              <p>
-                <b>Category:</b> {review.category}
-              </p>
-              <img
-                src={review.review_img_url}
-                width="250"
-                height="200"
-                alt="review-image"
-              ></img>
-              <p>
-                <b>{review.owner}: </b>
-                {review.review_body}
-              </p>
-              <p>
-                <b>Votes: </b>
-                {review.votes}
-              </p>
-              <br></br>
-            </li>
-          );
+          return <SingleReview review={review} />;
         })}
       </ul>
     </section>
