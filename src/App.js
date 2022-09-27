@@ -3,7 +3,9 @@ import "./css/App.css";
 import AllReviews from "./Components/AllReviews";
 import SingleReview from "./Components/SingleReview";
 import Home from "./Components/Home";
-import Navbar from "./Components/Nav";
+import Navbar from "./Components/Navbar";
+import CategoriesPage from "./Components/CategoriesPage";
+import SingleCategory from "./Components/SingleCategory";
 
 function App() {
   return (
@@ -24,6 +26,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/reviews" element={<AllReviews />} />
           <Route path="/singlereview" element={<SingleReview />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route
+            path="/categories/:category_slug"
+            element={<SingleCategory />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

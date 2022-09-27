@@ -21,7 +21,7 @@ const AllReviews = () => {
           return <SingleReview review={review} />;
         })}
       </ul>
-    </section>
+    </section> //how it my map still out putting the individual properties i asked for when that logic is now in 'singleReview'
   );
 };
 export default AllReviews;
