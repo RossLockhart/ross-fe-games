@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchReviewCard } from "../utils/api";
+import { getReviewById } from "../utils/api";
 import "../css/ReviewPage.css";
 
 const ReviewPage = () => {
@@ -8,11 +8,11 @@ const ReviewPage = () => {
   const { review_id } = useParams();
 
   useEffect(() => {
-    fetchReviewCard(review_id).then((reviewData) => {
+    getReviewById(review_id).then((reviewData) => {
       setReview(reviewData);
     });
   }, [review_id]);
-  console.log(666666, review);
+
   return (
     <section className="ReviewPage">
       <h1>Showing reviews for...</h1>

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import "../css/SingleCategory.css";
 import { useParams } from "react-router-dom";
-import { fetchCategorySlug } from "../utils/api";
+import { getReviews } from "../utils/api";
 
 const SingleCategory = () => {
   const [category, setCategory] = useState([]);
   const { category_slug } = useParams();
   useEffect(() => {
-    fetchCategorySlug(category_slug).then((categoryData) => {
+    getReviews(category_slug).then((categoryData) => {
       setCategory(categoryData);
     });
   }, [category_slug]);

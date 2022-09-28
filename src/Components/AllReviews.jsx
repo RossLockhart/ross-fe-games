@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import "../css/AllReviews.css";
+import { getReviews } from "../utils/api";
 import ReviewCard from "./ReviewCard";
 
 const AllReviews = () => {
-  const [reviews, showAllReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://fe-games.herokuapp.com/api/reviews")
-      .then((res) => res.json())
-      .then((data) => {
-        showAllReviews(data.reviews);
-      });
+    getReviews().then((data) => {
+      setReviews(data);
+    });
   }, []);
 
   return (
@@ -17,7 +16,6 @@ const AllReviews = () => {
       <h1>Select a game to see reviews</h1>
       <ul>
         {reviews.map((review) => {
-          console.log(11111, review);
           return <ReviewCard review={review} />;
         })}
       </ul>
