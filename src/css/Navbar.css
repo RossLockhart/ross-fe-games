@@ -13,3 +13,7 @@
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
+
+/* in here, you need to add a margin-right 
+to each link on the nav bar individually by 
+giving each it's own classname e.g classname = HomeLink */
