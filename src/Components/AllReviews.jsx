@@ -8,7 +8,6 @@ const AllReviews = () => {
     fetch("https://fe-games.herokuapp.com/api/reviews")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.reviews);
         showAllReviews(data.reviews);
       });
   }, []);
