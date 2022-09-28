@@ -1,4 +1,4 @@
-.navbar {
+.NavBar {
   display: inline;
   padding-right: 30px;
   margin-right: 0px;
@@ -13,3 +13,10 @@
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
+/* .NavBar li {
+  margin-right: 20px;
+}
+li {
+  display: inline;
+  margin-right: 40px;
+} */

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/AllReviews.css";
-import SingleReview from "./SingleReview";
+import ReviewCard from "./ReviewCard";
 
 const AllReviews = () => {
   const [reviews, showAllReviews] = useState([]);
@@ -14,10 +14,11 @@ const AllReviews = () => {
 
   return (
     <section className="AllReviews">
-      <h1>All Reviews</h1>
+      <h1>Select a game to see reviews</h1>
       <ul>
         {reviews.map((review) => {
-          return <SingleReview review={review} />;
+          console.log(11111, review);
+          return <ReviewCard review={review} />;
         })}
       </ul>
     </section> //how it my map still out putting the individual properties i asked for when that logic is now in 'singleReview'

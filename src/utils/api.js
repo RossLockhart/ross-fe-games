@@ -10,9 +10,8 @@ export const fetchCategorySlug = (category_slug) => {
   });
 };
 
-// export const fetchSingleReview = (review_id) => {
-//   return myApi.get(`/reviews?review_id=${review_id}`).then((res) => {
-//     console.log(res.data.reviews.review_id);
-//     return res.data.reviews.review_id;
-//   });
-// };
+export const fetchReviewCard = (review_id) => {
+  return myApi.get(`/reviews/${review_id}`).then((res) => {
+    return res.data.review;
+  });
+};

@@ -8,7 +8,6 @@ const CategoriesPage = () => {
     fetch("https://fe-games.herokuapp.com/api/categories")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.categories);
         selectCategories(data.categories);
       });
   }, []);

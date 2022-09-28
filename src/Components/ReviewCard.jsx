@@ -1,12 +1,17 @@
-function SingleReview(props) {
+import { Link } from "react-router-dom";
+
+function ReviewCard(props) {
   const review = props.review;
+  console.log(22222, review);
   return (
     <li key={review.review_id}>
-      <p>
-        <u>
-          <b>{review.title}</b>
-        </u>
-      </p>
+      <u>
+        <Link to={`/reviews/${review.review_id}`}>
+          <p>
+            <b>{review.title}</b>
+          </p>
+        </Link>
+      </u>
       <p>
         <b>Category:</b> {review.category}
       </p>
@@ -16,17 +21,8 @@ function SingleReview(props) {
         height="200"
         alt="review-image"
       ></img>
-      <p>
-        <b>{review.owner}: </b>
-        {review.review_body}
-      </p>
-      <p>
-        <b>Votes: </b>
-        {review.votes}
-      </p>
-      <br></br>
     </li>
   );
 }
-export default SingleReview;
+export default ReviewCard;
 //this is going to be used a few times for the sake of review_id page, parts of it will be used for the home page (though with some augmentation), and potemntially again for the categories page
