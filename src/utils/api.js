@@ -23,15 +23,11 @@ export const getCategories = () => {
     return res.data.categories;
   });
 };
-/////this one for the patch
+
 export const PatchVoteOnReview = (review_id, voteValue) => {
   return myApi
     .patch(`reviews/${review_id}`, { inc_votes: voteValue })
     .then((res) => {
-      return res; //data.votes
+      return res;
     });
 };
-/////////
-// export const getReviewFailed = () => {
-//   return myApi.get(`reviews/${!review_id}`);
-// };
