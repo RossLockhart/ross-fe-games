@@ -5,13 +5,10 @@ function ReviewCard(props) {
   console.log(22222, review);
   return (
     <li key={review.review_id}>
-      <u>
-        <Link to={`/reviews/${review.review_id}`}>
-          <p>
-            <b>{review.title}</b>
-          </p>
-        </Link>
-      </u>
+      <Link to={`/reviews/${review.review_id}`}>
+        <p className="boldANDunderlined">{review.title}</p>
+      </Link>
+
       <p>
         <b>Category:</b> {review.category}
       </p>

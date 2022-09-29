@@ -1,4 +1,4 @@
-.NavBar {
+.GlobalNav {
   display: inline;
   padding-right: 30px;
   margin-right: 0px;
@@ -12,6 +12,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
+}
+
+.NavHome {
+  margin: 1em;
+  background-color: #5b6b75;
+}
+.NavReviews {
+  margin: 1em;
+  background-color: #5b6b75;
+}
+.NavCategories {
+  margin: 1em;
+  background-color: #5b6b75;
 }
 
 /* in here, you need to add a margin-right 

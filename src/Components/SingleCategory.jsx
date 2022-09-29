@@ -13,29 +13,22 @@ const SingleCategory = () => {
   }, [category_slug]);
   return (
     <section className="SingleCategory">
-      <h2>Your category is served.....{category_slug}</h2>
+      <h2>Showing reviews for: {category_slug}</h2>
 
       <ul>
         {category.map((review) => {
           return (
             <li key={review.category}>
-              <b>
-                <p>
-                  <u>{review.category}</u>
-                </p>
-              </b>
+              <p className="bold">{review.category}</p>
+
+              <p className="underlined">{review.title}</p>
               <p>
-                <u>{review.title}</u>
+                <b>Review by {review.owner}: </b> {review.review_body}
               </p>
-              <p>
-                <b>Review:</b> {review.review_body}
+              <p className="bold">
+                Review no# {review.review_id} posted at: {review.created_at}
               </p>
-              <img
-                src={review.review_img_url}
-                width="250"
-                height="200"
-                alt="review-image"
-              ></img>
+              <p className="bold">Votes: {review.votes}</p>
               <br></br>
               <br></br>
             </li>

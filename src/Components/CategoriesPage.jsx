@@ -14,16 +14,15 @@ const CategoriesPage = () => {
 
   return (
     <section className="CategoriesPage">
-      <h1>Categories</h1>
+      <h1>Select a category to see reviews</h1>
       <ul>
         {categories.map((category) => {
           return (
             <li key={category.slug}>
-              <u>
-                <Link to={`/categories/${category.slug}`}>
-                  <p>{category.slug}</p>
-                </Link>
-              </u>
+              <Link to={`/categories/${category.slug}`}>
+                <p className="boldANDunderlined">{category.slug}</p>
+              </Link>
+
               <p>
                 <b>Description: </b>
                 {category.description}

@@ -13,7 +13,7 @@ const AllReviews = () => {
 
   return (
     <section className="AllReviews">
-      <h1>Select a game to see reviews</h1>
+      <h1>Select a game title to see reviews</h1>
       <ul>
         {reviews.map((review) => {
           return <ReviewCard review={review} />;

@@ -17,19 +17,13 @@ const ReviewPage = () => {
     <section className="ReviewPage">
       <h1>Showing reviews for...</h1>
       <article>
-        <p>
-          <b>{review.title}</b>
-        </p>
-        <p>
-          <b>{review.owner}:</b>
-        </p>
+        <p className="boldANDunderlined">{review.title}</p>
+        <p className="bold">{review.owner}:</p>
         <p>{review.review_body}</p>
-        <p>
-          <b>Review no# {review_id} posted at: </b> {review.created_at}
+        <p className="bold">
+          Review no# {review_id} posted at: {review.created_at}
         </p>
-        <p>
-          <b>Votes:</b> {review.votes}
-        </p>
+        <p className="bold">Votes: {review.votes}</p>
       </article>
     </section>
   );
