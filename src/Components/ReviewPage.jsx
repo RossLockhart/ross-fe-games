@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReviewById } from "../utils/api";
+import { getReviewById, PatchVoteOnReview } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import "../css/ReviewPage.css";
 
 const ReviewPage = () => {
+  const [newVote, setNewVote] = useState(0);
   const [error, setError] = useState(false);
   const [review, setReview] = useState([]);
   const { review_id } = useParams();
+
+  const addVote = (VoteValue) => {
+    setNewVote((currVoteValue) => (currVoteValue += VoteValue));
+    PatchVoteOnReview(review.review_id, VoteValue)
+      .then(() => {})
+      .catch((err) => {
+        setNewVote((currVoteValue) => (currVoteValue -= VoteValue));
+        setError(true);
+      });
+  };
 
   useEffect(() => {
     getReviewById(review_id)
@@ -33,7 +44,9 @@ const ReviewPage = () => {
           <p className="bold">
             Review no# {review_id} posted at: {review.created_at}
           </p>
-          <p className="bold">Votes: {review.votes}</p>
+          <p className="bold">Votes: {review.votes + newVote}</p>
+          <button onClick={() => addVote(1)}>UpVote</button>
+          <button onClick={() => addVote(-1)}>DownVote</button>
         </article>
       </section>
     );
