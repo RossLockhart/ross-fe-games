@@ -23,3 +23,6 @@ export const getCategories = () => {
     return res.data.categories;
   });
 };
+// export const PostVoteOnReview = (review_id) => {
+//   return myApi.post(`reviews/${review_id}`).then(req);
+// };

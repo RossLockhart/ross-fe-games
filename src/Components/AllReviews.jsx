@@ -16,10 +16,10 @@ const AllReviews = () => {
       <h1>Select a game title to see reviews</h1>
       <ul>
         {reviews.map((review) => {
-          return <ReviewCard review={review} />;
+          return <ReviewCard key="reviewCard" review={review} />;
         })}
       </ul>
-    </section> //how it my map still out putting the individual properties i asked for when that logic is now in 'singleReview'
+    </section>
   );
 };
 export default AllReviews;
