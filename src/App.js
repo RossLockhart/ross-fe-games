@@ -1,29 +1,30 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./css/App.css";
 import AllReviews from "./Components/AllReviews";
-import SingleReview from "./Components/SingleReview";
 import Home from "./Components/Home";
-import Navbar from "./Components/Nav";
+import Navbar from "./Components/Navbar";
+import CategoriesPage from "./Components/CategoriesPage";
+import SingleCategory from "./Components/SingleCategory";
+import ReviewPage from "./Components/ReviewPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width"
-          initial-scale="1.0"
-        />
-      </head>
       <div className="App">
-        <header className="App-header"></header>
+        <header className="App-header">
+          <h2>The Table-Top Appraisal Shop&trade;</h2>
+          <h3>We don't play around when it comes to game reviews</h3>
+        </header>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews" element={<AllReviews />} />
-          <Route path="/singlereview" element={<SingleReview />} />
+          <Route path="/reviews/:review_id" element={<ReviewPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route
+            path="/categories/:category_slug"
+            element={<SingleCategory />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,5 +1,32 @@
-.navbar li {
+.GlobalNav {
   display: inline;
   padding-right: 30px;
-  margin-right: 20px;
+  margin-right: 0px;
+
+  text-align: center;
+  background-color: #5b6b75;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(0, 0, 0);
 }
+
+.NavHome {
+  margin: 1em;
+  background-color: #5b6b75;
+}
+.NavReviews {
+  margin: 1em;
+  background-color: #5b6b75;
+}
+.NavCategories {
+  margin: 1em;
+  background-color: #5b6b75;
+}
+
+/* in here, you need to add a margin-right 
+to each link on the nav bar individually by 
+giving each it's own classname e.g classname = HomeLink */

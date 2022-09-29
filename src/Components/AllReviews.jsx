@@ -1,27 +1,25 @@
 import { useEffect, useState } from "react";
 import "../css/AllReviews.css";
-import SingleReview from "./SingleReview";
+import { getReviews } from "../utils/api";
+import ReviewCard from "./ReviewCard";
 
 const AllReviews = () => {
-  const [reviews, showAllReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://fe-games.herokuapp.com/api/reviews")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.reviews);
-        showAllReviews(data.reviews);
-      });
+    getReviews().then((data) => {
+      setReviews(data);
+    });
   }, []);
 
   return (
     <section className="AllReviews">
-      <h1>All Reviews</h1>
+      <h1>Select a game title to see reviews</h1>
       <ul>
         {reviews.map((review) => {
-          return <SingleReview review={review} />;
+          return <ReviewCard review={review} />;
         })}
       </ul>
-    </section>
+    </section> //how it my map still out putting the individual properties i asked for when that logic is now in 'singleReview'
   );
 };
 export default AllReviews;
