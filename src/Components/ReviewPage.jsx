@@ -1,32 +1,43 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../utils/api";
+import ErrorPage from "./ErrorPage";
 import "../css/ReviewPage.css";
 
 const ReviewPage = () => {
+  const [error, setError] = useState(false);
   const [review, setReview] = useState([]);
   const { review_id } = useParams();
 
   useEffect(() => {
-    getReviewById(review_id).then((reviewData) => {
-      setReview(reviewData);
-    });
+    getReviewById(review_id)
+      .then((reviewData) => {
+        setReview(reviewData);
+        setError(false);
+      })
+      .catch((err) => {
+        setError(true);
+      });
   }, [review_id]);
 
-  return (
-    <section className="ReviewPage">
-      <h1>Showing reviews for...</h1>
-      <article>
-        <p className="boldANDunderlined">{review.title}</p>
-        <p className="bold">{review.owner}:</p>
-        <p>{review.review_body}</p>
-        <p className="bold">
-          Review no# {review_id} posted at: {review.created_at}
-        </p>
-        <p className="bold">Votes: {review.votes}</p>
-      </article>
-    </section>
-  );
+  if (error === true) {
+    return <ErrorPage />;
+  } else {
+    return (
+      <section className="ReviewPage">
+        <h1>Showing reviews for...</h1>
+        <article>
+          <p className="boldANDunderlined">{review.title}</p>
+          <p className="bold">{review.owner}:</p>
+          <p>{review.review_body}</p>
+          <p className="bold">
+            Review no# {review_id} posted at: {review.created_at}
+          </p>
+          <p className="bold">Votes: {review.votes}</p>
+        </article>
+      </section>
+    );
+  }
 };
 export default ReviewPage;
 //for thsi pag you need to set up a use state and then a use affect that uses your utils function.
