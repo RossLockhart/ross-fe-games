@@ -20,7 +20,6 @@ export const getReviewById = (review_id) => {
 };
 export const getCategories = () => {
   return myApi.get(`/categories`).then((res) => {
-    console.log(res.data.categories);
     return res.data.categories;
   });
 };
