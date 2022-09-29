@@ -18,3 +18,20 @@ export const getReviewById = (review_id) => {
     return res.data.review;
   });
 };
+export const getCategories = () => {
+  return myApi.get(`/categories`).then((res) => {
+    return res.data.categories;
+  });
+};
+/////this one for the patch
+export const PatchVoteOnReview = (review_id, voteValue) => {
+  return myApi
+    .patch(`reviews/${review_id}`, { inc_votes: voteValue })
+    .then((res) => {
+      return res; //data.votes
+    });
+};
+/////////
+// export const getReviewFailed = () => {
+//   return myApi.get(`reviews/${!review_id}`);
+// };

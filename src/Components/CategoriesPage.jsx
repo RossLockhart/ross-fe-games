@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/CatergoriesPage.css";
+import { getCategories } from "../utils/api";
 
 const CategoriesPage = () => {
-  const [categories, selectCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("https://fe-games.herokuapp.com/api/categories")
-      .then((res) => res.json())
-      .then((data) => {
-        selectCategories(data.categories);
-      });
+    getCategories().then((data) => {
+      setCategories(data);
+    });
   }, []);
 
   return (

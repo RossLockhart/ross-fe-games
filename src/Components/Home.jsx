@@ -1,6 +1,8 @@
+import "../css/Home.css";
+
 const Home = () => {
   return (
-    <div>
+    <div className="HomeStyling">
       <h2>Home!</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel leo

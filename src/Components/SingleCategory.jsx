@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../css/SingleCategory.css";
 import { useParams } from "react-router-dom";
 import { getReviews } from "../utils/api";
+import { Link } from "react-router-dom";
 
 const SingleCategory = () => {
   const [category, setCategory] = useState([]);
@@ -21,12 +22,12 @@ const SingleCategory = () => {
             <li key={review.category}>
               <p className="bold">{review.category}</p>
 
-              <p className="underlined">{review.title}</p>
-              <p>
-                <b>Review by {review.owner}: </b> {review.review_body}
-              </p>
+              <Link to={`/reviews/${review.review_id}`}>
+                <p className="underlined">{review.title}</p>
+              </Link>
               <p className="bold">
-                Review no# {review.review_id} posted at: {review.created_at}
+                Review no# {review.review_id} posted by {review.owner} at:{" "}
+                {review.created_at}
               </p>
               <p className="bold">Votes: {review.votes}</p>
               <br></br>
