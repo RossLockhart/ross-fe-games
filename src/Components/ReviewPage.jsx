@@ -7,12 +7,18 @@ import ReviewComments from "./ReviewComments";
 
 const ReviewPage = () => {
   const [newVote, setNewVote] = useState(0);
+
+  const [hasVotedMinus, setHasVotedMinus] = useState(false);
+  const [hasVotedPlus, setHasVotedPlus] = useState(false);
+
   const [error, setError] = useState(false);
   const [review, setReview] = useState([]);
   const { review_id } = useParams();
 
   const addVote = (VoteValue) => {
     setNewVote((currVoteValue) => (currVoteValue += VoteValue));
+    setHasVotedPlus(true);
+    setHasVotedMinus(true);
     PatchVoteOnReview(review.review_id, VoteValue).catch((err) => {
       setNewVote((currVoteValue) => (currVoteValue -= VoteValue));
       setError(true);
@@ -44,8 +50,20 @@ const ReviewPage = () => {
             Review no# {review_id} posted at: {review.created_at}
           </p>
           <p className="bold">Votes: {review.votes + newVote}</p>
-          <button onClick={() => addVote(1)}>UpVote</button>
-          <button onClick={() => addVote(-1)}>DownVote</button>
+          <button
+            disabled={hasVotedPlus ? true : false}
+            className="upVoteButton"
+            onClick={() => addVote(1)}
+          >
+            UpVote
+          </button>
+          <button
+            disabled={hasVotedMinus ? true : false}
+            className="downVoteButton"
+            onClick={() => addVote(-1)}
+          >
+            DownVote
+          </button>
           <ReviewComments review_id={review_id} />
         </article>
       </section>
