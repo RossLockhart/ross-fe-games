@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReviewById, PatchVoteOnReview } from "../utils/api";
+import { getReviewById, patchVoteOnReview } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import "../css/ReviewPage.css";
 import ReviewComments from "./ReviewComments";
@@ -19,7 +19,7 @@ const ReviewPage = () => {
     setNewVote((currVoteValue) => (currVoteValue += VoteValue));
     setHasVotedPlus(true);
     setHasVotedMinus(true);
-    PatchVoteOnReview(review.review_id, VoteValue).catch((err) => {
+    patchVoteOnReview(review.review_id, VoteValue).catch((err) => {
       setNewVote((currVoteValue) => (currVoteValue -= VoteValue));
       setError(true);
     });
