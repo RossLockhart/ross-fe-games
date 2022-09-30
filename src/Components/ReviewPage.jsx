@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getReviewById, PatchVoteOnReview } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import "../css/ReviewPage.css";
+import ReviewComments from "./ReviewComments";
 
 const ReviewPage = () => {
   const [newVote, setNewVote] = useState(0);
@@ -12,12 +13,10 @@ const ReviewPage = () => {
 
   const addVote = (VoteValue) => {
     setNewVote((currVoteValue) => (currVoteValue += VoteValue));
-    PatchVoteOnReview(review.review_id, VoteValue)
-      .then(() => {})
-      .catch((err) => {
-        setNewVote((currVoteValue) => (currVoteValue -= VoteValue));
-        setError(true);
-      });
+    PatchVoteOnReview(review.review_id, VoteValue).catch((err) => {
+      setNewVote((currVoteValue) => (currVoteValue -= VoteValue));
+      setError(true);
+    });
   };
 
   useEffect(() => {
@@ -47,11 +46,10 @@ const ReviewPage = () => {
           <p className="bold">Votes: {review.votes + newVote}</p>
           <button onClick={() => addVote(1)}>UpVote</button>
           <button onClick={() => addVote(-1)}>DownVote</button>
+          <ReviewComments review_id={review_id} />
         </article>
       </section>
     );
   }
 };
 export default ReviewPage;
-//for thsi pag you need to set up a use state and then a use affect that uses your utils function.
-//it should be a very similar set up to how categoriesPage was set up. the only diff being that we will not return a map but instead just the propeerties of the object in an article, not even as a list

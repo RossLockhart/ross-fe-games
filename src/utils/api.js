@@ -26,8 +26,14 @@ export const getCategories = () => {
 
 export const PatchVoteOnReview = (review_id, voteValue) => {
   return myApi
-    .patch(`reviews/${review_id}`, { inc_votes: voteValue })
+    .patch(`/reviews/${review_id}`, { inc_votes: voteValue })
     .then((res) => {
       return res;
     });
+};
+
+export const getReviewComments = (review_id) => {
+  return myApi.get(`/reviews/${review_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
 };
