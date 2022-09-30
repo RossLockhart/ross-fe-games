@@ -1,6 +1,7 @@
 //return comments according to 'belongs_to'(the specific game)
 import { useEffect, useState } from "react";
 import { getReviewComments } from "../utils/api";
+import AddComment from "./AddComment";
 
 const ReviewComments = (props) => {
   const review_id = props.review_id;
@@ -16,6 +17,7 @@ const ReviewComments = (props) => {
   return (
     <section className="ReviewComments">
       <h3>Comments: </h3>
+      <AddComment />
       <ul>
         {comments.map((comment) => {
           return (
@@ -33,6 +35,5 @@ const ReviewComments = (props) => {
     </section>
   );
 };
-//so close! this page takes a function from api.js, this page is rendered in the app, and it is inserted into ReviewPage so that it can render underneath the reviews.
-//the problem: it only renders my h3 title of 'comments' and not the result of the map
+
 export default ReviewComments;

@@ -21,5 +21,3 @@ function ReviewCard(props) {
   );
 }
 export default ReviewCard;
-//this is going to be used a few times for the sake of review_id page, parts of it will be used for the home page (though with some augmentation), and potemntially again for the categories page
-//key={review.review_id}
