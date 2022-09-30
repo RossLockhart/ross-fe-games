@@ -7,6 +7,7 @@ import CategoriesPage from "./Components/CategoriesPage";
 import SingleCategory from "./Components/SingleCategory";
 import ReviewPage from "./Components/ReviewPage";
 import ErrorPage from "./Components/ErrorPage";
+import ReviewComments from "./Components/ReviewComments";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             path="/categories/:category_slug"
             element={<SingleCategory />}
           />
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
