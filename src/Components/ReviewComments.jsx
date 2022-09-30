@@ -18,7 +18,6 @@ const ReviewComments = (props) => {
       <h3>Comments: </h3>
       <ul>
         {comments.map((comment) => {
-          console.log(11111, comment);
           return (
             <li key={comment.comment_id}>
               <p>
